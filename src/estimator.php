@@ -38,9 +38,9 @@ function estimatedDays($type){
   $calcEstimatedPeriod = $GLOBALS['timeToElapse'];
   else if($type == "weeks")
   $calcEstimatedPeriod = $GLOBALS['timeToElapse'] * 7;
-  else if($type == "month")
+  else if($type == "months")
   $calcEstimatedPeriod = $GLOBALS['timeToElapse'] * 30;
-  else if($type == "year")
+  else if($type == "years")
   $calcEstimatedPeriod = $GLOBALS['timeToElapse'] * 30 * 12;
   else 
   $calcEstimatedPeriod = $GLOBALS['timeToElapse'];
@@ -59,9 +59,9 @@ function assessmentOne($type1){
   else 
   $likelyToBeInfected = 10;
 
-//  $GLOBALS['estimatedPeriod'] = intval(estimatedDays($GLOBALS['periodType']));
+  $GLOBALS['estimatedPeriod'] = intval(estimatedDays($GLOBALS['periodType']));
 
-  if($GLOBALS['periodType'] == "days")
+/*  if($GLOBALS['periodType'] == "days")
   $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'];
     else if($GLOBALS['periodType'] == "weeks")
     $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 7;
@@ -70,7 +70,7 @@ function assessmentOne($type1){
     else if($GLOBALS['periodType'] == "year")
     $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 30 * 12;
     else 
-    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'];
+    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse']; */
 
 
   $infectionsPerThreeDays = 2;
@@ -159,7 +159,7 @@ function covid19ImpactEstimator($data)
   $GLOBALS['population'] = $data["population"];
   $GLOBALS['totalHospitalBeds'] = $data["totalHospitalBeds"];
 
-  assessmentOne("impact");
+/*  assessmentOne("impact");
   assessmentTwo();
   assessmentThree();  
   $impact = array(
@@ -170,10 +170,10 @@ function covid19ImpactEstimator($data)
     "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
     "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
     "dollarsInFlight" => $GLOBALS['dollarsInFlight']
-  );
+  );*/
   
 
-  assessmentOne("severe");
+/*  assessmentOne("severe");
   assessmentTwo();
   assessmentThree();
   
@@ -185,15 +185,15 @@ function covid19ImpactEstimator($data)
     "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
     "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
     "dollarsInFlight" => $GLOBALS['dollarsInFlight']
-  );
+  );*/
 
   $output = array(
     "data" => $data,
-    "impact" => $impact,
-    "severeImpact" => $severe
+    "impact" => impact(),
+    "severeImpact" => severeImpact()
       );
   
-    echo json_encode($output);
+//    echo json_encode($output);
 
   return $output;
 }
