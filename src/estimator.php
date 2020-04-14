@@ -136,7 +136,7 @@ function assessmentThree(){
 
     $GLOBALS['casesForICUByRequestedTime'] = (int) (0.05 * $GLOBALS['infectionsByRequestedTime']);
     $GLOBALS['casesForVentilatorsByRequestedTime'] = (int)(0.02 * $GLOBALS['infectionsByRequestedTime']);
-    $GLOBALS['dollarsInFlight'] = intval(($GLOBALS['infectionsByRequestedTime'] * $GLOBALS['avgDailyIncomeInUSD'] * $GLOBALS['avgDailyIncomePopulation']) / $GLOBALS['estimatedPeriod']);
+    $GLOBALS['dollarsInFlight'] = intval(($GLOBALS['infectionsByRequestedTime'] * $GLOBALS['avgDailyIncomeInUSD'] * $GLOBALS['avgDailyIncomePopulation']));
 }
 
 
