@@ -145,7 +145,7 @@ function outputAssesssment(){
 function covid19ImpactEstimator($data)
 {
 
-  $primaryData = json_decode(file_get_contents('php://input'), true);
+  $data = json_decode(file_get_contents('php://input'), true);
 //  $primaryData = json_decode($data, true);
 
 
