@@ -145,7 +145,7 @@ function outputAssesssment(){
 function covid19ImpactEstimator($data)
 {
 
-  $data = file_get_contents('php://input');
+//  $primaryData = json_decode(file_get_contents('php://input'), true);
   $primaryData = json_decode($data, true);
 
 
@@ -153,11 +153,11 @@ function covid19ImpactEstimator($data)
   $GLOBALS['avgAge'] = $primaryData["region"]["avgAge"];
   $GLOBALS['avgDailyIncomeInUSD'] = $primaryData["region"]["avgDailyIncomeInUSD"];
   $GLOBALS['avgDailyIncomePopulation'] = $primaryData["region"]['avgDailyIncomePopulation'];
-  $GLOBALS['periodType'] = $primaryData['periodType'];
-  $GLOBALS['timeToElapse'] = $primaryData["timeToElapse"];
-  $GLOBALS['reportedCases'] = $primaryData["reportedCases"];
-  $GLOBALS['population'] = $primaryData["population"];
-  $GLOBALS['totalHospitalBeds'] = $primaryData["totalHospitalBeds"];
+  $GLOBALS['periodType'] = $data['periodType'];
+  $GLOBALS['timeToElapse'] = $data["timeToElapse"];
+  $GLOBALS['reportedCases'] = $data["reportedCases"];
+  $GLOBALS['population'] = $data["population"];
+  $GLOBALS['totalHospitalBeds'] = $data["totalHospitalBeds"];
 
   $output = array(
     "data" => $data,
