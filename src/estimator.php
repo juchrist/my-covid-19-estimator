@@ -60,19 +60,6 @@ function assessmentOne($type1){
   $likelyToBeInfected = 10;
 
   $GLOBALS['estimatedPeriod'] = intval(estimatedDays($GLOBALS['periodType']));
-
-/*  if($GLOBALS['periodType'] == "days")
-  $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'];
-    else if($GLOBALS['periodType'] == "weeks")
-    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 7;
-    else if($GLOBALS['periodType'] == "month")
-    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 30;
-    else if($GLOBALS['periodType'] == "year")
-    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 30 * 12;
-    else 
-    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse']; */
-
-
   $infectionsPerThreeDays = 2;
   $periodPerThreeDays = $GLOBALS['estimatedPeriod'] / 3;
   $estimatedPeriodPerThreeDays = (int) $periodPerThreeDays;
@@ -93,7 +80,7 @@ function assessmentTwo(){
   $GLOBALS['severeCasesByRequestedTime'] = (int) $numberSevereCasesByRequestedTime;
 
 
-  $availableBeds = intval(0.35 * $GLOBALS['totalHospitalBeds']);
+  $availableBeds = 0.35 * $GLOBALS['totalHospitalBeds'];
 
   $numberHospitalBedsByRequestedTime = $availableBeds - $GLOBALS['severeCasesByRequestedTime'];
   $GLOBALS['hospitalBedsByRequestedTime'] = (int) $numberHospitalBedsByRequestedTime;
@@ -146,7 +133,6 @@ function covid19ImpactEstimator($data)
 {
 
   json_decode(file_get_contents('php://input'), true);
-//  $primaryData = json_decode($data, true);
 
 
   $GLOBALS['name'] = $data["region"]['name'];
@@ -159,33 +145,6 @@ function covid19ImpactEstimator($data)
   $GLOBALS['population'] = $data["population"];
   $GLOBALS['totalHospitalBeds'] = $data["totalHospitalBeds"];
 
-/*  assessmentOne("impact");
-  assessmentTwo();
-  assessmentThree();  
-  $impact = array(
-    "currentlyInfected" => $GLOBALS['currentlyInfected'],
-    "infectionsByRequestedTime" => $GLOBALS['infectionsByRequestedTime'],
-    "severeCasesByRequestedTime" => $GLOBALS['severeCasesByRequestedTime'],
-    "hospitalBedsByRequestedTime" => $GLOBALS['hospitalBedsByRequestedTime'],
-    "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
-    "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
-    "dollarsInFlight" => $GLOBALS['dollarsInFlight']
-  );*/
-  
-
-/*  assessmentOne("severe");
-  assessmentTwo();
-  assessmentThree();
-  
-  $severe = array(
-    "currentlyInfected" => $GLOBALS['currentlyInfected'],
-    "infectionsByRequestedTime" => $GLOBALS['infectionsByRequestedTime'],
-    "severeCasesByRequestedTime" => $GLOBALS['severeCasesByRequestedTime'],
-    "hospitalBedsByRequestedTime" => $GLOBALS['hospitalBedsByRequestedTime'],
-    "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
-    "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
-    "dollarsInFlight" => $GLOBALS['dollarsInFlight']
-  );*/
 
   $output = array(
     "data" => $data,
