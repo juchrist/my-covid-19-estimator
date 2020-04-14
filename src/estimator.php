@@ -90,7 +90,20 @@ function assessmentOne($type1){
   else 
   $likelyToBeInfected = 10;
 
-  $GLOBALS['estimatedPeriod'] = (int) estimatedDays($GLOBALS['periodType']);
+//  $GLOBALS['estimatedPeriod'] = intval(estimatedDays($GLOBALS['periodType']));
+
+  if($GLOBALS['periodType'] == "days")
+  $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'];
+    else if($GLOBALS['periodType'] == "weeks")
+    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 7;
+    else if($GLOBALS['periodType'] == "month")
+    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 30;
+    else if($GLOBALS['periodType'] == "year")
+    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'] * 30 * 12;
+    else 
+    $GLOBALS['estimatedPeriod'] = $GLOBALS['timeToElapse'];
+
+
   $infectionsPerThreeDays = 2;
   $periodPerThreeDays = $GLOBALS['estimatedPeriod'] / 3;
   $estimatedPeriodPerThreeDays = (int) $periodPerThreeDays;
