@@ -149,10 +149,10 @@ function covid19ImpactEstimator($data)
 //  $primaryData = json_decode($data, true);
 
 
-  $GLOBALS['name'] = $primaryData["region"]['name'];
-  $GLOBALS['avgAge'] = $primaryData["region"]["avgAge"];
-  $GLOBALS['avgDailyIncomeInUSD'] = $primaryData["region"]["avgDailyIncomeInUSD"];
-  $GLOBALS['avgDailyIncomePopulation'] = $primaryData["region"]['avgDailyIncomePopulation'];
+  $GLOBALS['name'] = $data["region"]['name'];
+  $GLOBALS['avgAge'] = $data["region"]["avgAge"];
+  $GLOBALS['avgDailyIncomeInUSD'] = $data["region"]["avgDailyIncomeInUSD"];
+  $GLOBALS['avgDailyIncomePopulation'] = $data["region"]['avgDailyIncomePopulation'];
   $GLOBALS['periodType'] = $data['periodType'];
   $GLOBALS['timeToElapse'] = $data["timeToElapse"];
   $GLOBALS['reportedCases'] = $data["reportedCases"];
