@@ -24,8 +24,8 @@
 function covid19ImpactEstimator($data)
 {
 
-//  $primaryData = json_decode(file_get_contents('php://input'));
-  $primaryData = json_decode($data, true);
+  $primaryData = json_decode(file_get_contents($data));
+//  $primaryData = json_decode($data);
 
 
   $GLOBALS['name'] = $primaryData['name'];
