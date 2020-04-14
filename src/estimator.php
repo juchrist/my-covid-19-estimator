@@ -162,14 +162,30 @@ function covid19ImpactEstimator($data)
   assessmentOne("impact");
   assessmentTwo();
   assessmentThree();  
-  $impact = outputAssesssment();
+  $impact = array(
+    "currentlyInfected" => $GLOBALS['currentlyInfected'],
+    "infectionsByRequestedTime" => $GLOBALS['infectionsByRequestedTime'],
+    "severeCasesByRequestedTime" => $GLOBALS['severeCasesByRequestedTime'],
+    "hospitalBedsByRequestedTime" => $GLOBALS['hospitalBedsByRequestedTime'],
+    "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
+    "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
+    "dollarsInFlight" => $GLOBALS['dollarsInFlight']
+  );
   
 
   assessmentOne("severe");
   assessmentTwo();
   assessmentThree();
   
-  $severe = outputAssesssment();
+  $severe = array(
+    "currentlyInfected" => $GLOBALS['currentlyInfected'],
+    "infectionsByRequestedTime" => $GLOBALS['infectionsByRequestedTime'],
+    "severeCasesByRequestedTime" => $GLOBALS['severeCasesByRequestedTime'],
+    "hospitalBedsByRequestedTime" => $GLOBALS['hospitalBedsByRequestedTime'],
+    "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
+    "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
+    "dollarsInFlight" => $GLOBALS['dollarsInFlight']
+  );
 
   $output = array(
     "data" => $data,
