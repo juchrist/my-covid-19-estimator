@@ -30,7 +30,7 @@
   $casesForVentilatorsByRequestedTime;
   $dollarsInFlight;
 
-
+  $estimatedPeriod;
 
 function covid19ImpactEstimator($data)
 {
