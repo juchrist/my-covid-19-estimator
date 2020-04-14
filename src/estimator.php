@@ -159,10 +159,22 @@ function covid19ImpactEstimator($data)
   $GLOBALS['population'] = $data["population"];
   $GLOBALS['totalHospitalBeds'] = $data["totalHospitalBeds"];
 
+  assessmentOne("impact");
+  assessmentTwo();
+  assessmentThree();  
+  $output = outputAssesssment();
+  
+
+  assessmentOne("severe");
+  assessmentTwo();
+  assessmentThree();
+  
+  $severe = outputAssesssment();
+
   $output = array(
     "data" => $data,
-    "impact" => impact(),
-    "severeImpact" => severeImpact()
+    "impact" => $impact,
+    "severeImpact" => $severe
       );
   
     echo json_encode($output);
