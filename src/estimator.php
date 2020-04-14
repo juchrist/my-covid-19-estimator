@@ -122,7 +122,7 @@ function outputAssesssment(){
       "severeCasesByRequestedTime" => $GLOBALS['severeCasesByRequestedTime'],
       "hospitalBedsByRequestedTime" => $GLOBALS['hospitalBedsByRequestedTime'],
       "casesForICUByRequestedTime" => $GLOBALS['casesForICUByRequestedTime'],
-      "casesForVebtilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
+      "casesForVentilatorsByRequestedTime" => $GLOBALS['casesForVentilatorsByRequestedTime'],
       "dollarsInFlight" => $GLOBALS['dollarsInFlight']
     );
 
