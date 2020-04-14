@@ -32,37 +32,6 @@
 
   $estimatedPeriod;
 
-function covid19ImpactEstimator($data)
-{
-
-  $primaryData = json_decode(file_get_contents('php://input'));
-//  $primaryData = json_decode($data, true);
-
-
-  $GLOBALS['name'] = $primaryData['name'];
-  $GLOBALS['avgAge'] = $primaryData["avgAge"];
-  $GLOBALS['avgDailyIncomeInUSD'] = $primaryData["avgDailyIncomeInUSD"];
-  $GLOBALS['avgDailyIncomePopulation'] = $primaryData['avgDailyIncomePopulation'];
-  $GLOBALS['periodType'] = $primaryData['periodType'];
-  $GLOBALS['timeToElapse'] = $primaryData["timeToElapse"];
-  $GLOBALS['reportedCases'] = $primaryData["reportedCases"];
-  $GLOBALS['population'] = $primaryData["population"];
-  $GLOBALS['totalHospitalBeds'] = $primaryData["totalHospitalBeds"];
-
-  $output = array(
-    "data" => $data,
-    "estimate" => array(
-    "impact" => impact(),
-    "severeImpact" => severeImpact(),
-        )
-      );
-  
-    echo json_encode($output);
-
-//  return $data;
-}
-
-
 function estimatedDays($type){
 
   if($type == "days")
@@ -170,6 +139,37 @@ function outputAssesssment(){
       "dollarsInFlight" => $GLOBALS['dollarsInFlight']
     );
 
+}
+
+
+function covid19ImpactEstimator($data)
+{
+
+  $primaryData = json_decode(file_get_contents('php://input'));
+//  $primaryData = json_decode($data, true);
+
+
+  $GLOBALS['name'] = $primaryData['name'];
+  $GLOBALS['avgAge'] = $primaryData["avgAge"];
+  $GLOBALS['avgDailyIncomeInUSD'] = $primaryData["avgDailyIncomeInUSD"];
+  $GLOBALS['avgDailyIncomePopulation'] = $primaryData['avgDailyIncomePopulation'];
+  $GLOBALS['periodType'] = $primaryData['periodType'];
+  $GLOBALS['timeToElapse'] = $primaryData["timeToElapse"];
+  $GLOBALS['reportedCases'] = $primaryData["reportedCases"];
+  $GLOBALS['population'] = $primaryData["population"];
+  $GLOBALS['totalHospitalBeds'] = $primaryData["totalHospitalBeds"];
+
+  $output = array(
+    "data" => $data,
+    "estimate" => array(
+    "impact" => impact(),
+    "severeImpact" => severeImpact(),
+        )
+      );
+  
+    echo json_encode($output);
+
+//  return $data;
 }
 
 
