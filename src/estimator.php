@@ -1,6 +1,6 @@
 <?php
 
-  $name = "Africa";
+/*  $name = "Africa";
   $avgAge = 19.7;
   $avgDailyIncomeInUSD = 4;
   $avgDailyIncomePopulation = 0.73;
@@ -9,7 +9,18 @@
   $timeToElapse = 38;
   $reportedCases = 2747;
   $population = 92931687;
-  $totalHospitalBeds = 678874;
+  $totalHospitalBeds = 678874;*/
+
+  $name;
+  $avgAge;
+  $avgDailyIncomeInUSD;
+  $avgDailyIncomePopulation;
+
+  $periodType;
+  $timeToElapse;
+  $reportedCases;
+  $population;
+  $totalHospitalBeds;
 
   $currentlyInfected;
   $infectionsByRequestedTime;
@@ -24,8 +35,8 @@
 function covid19ImpactEstimator($data)
 {
 
-  $primaryData = json_decode(file_get_contents($data));
-//  $primaryData = json_decode($data);
+  $primaryData = json_decode(file_get_contents('php://input'));
+//  $primaryData = json_decode($data, true);
 
 
   $GLOBALS['name'] = $primaryData['name'];
@@ -51,6 +62,7 @@ function covid19ImpactEstimator($data)
 //  return $data;
 }
 
+
 function estimatedDays($type){
 
   if($type == "days")
@@ -67,6 +79,7 @@ function estimatedDays($type){
   
   return $calcEstimatedPeriod;
 }
+
 
 function assessmentOne($type1){
   
@@ -90,6 +103,7 @@ function assessmentOne($type1){
   $GLOBALS['infectionsByRequestedTime'] = (int) $numberInfectionsByRequestedTime;
 
 }
+
 
 function assessmentTwo(){
 
