@@ -145,19 +145,19 @@ function outputAssesssment(){
 function covid19ImpactEstimator($data)
 {
 
-  $primaryData = json_decode(file_get_contents('php://input'));
+  $primaryData = json_decode(file_get_contents('php://input'), true);
 //  $primaryData = json_decode($data, true);
 
 
-  $GLOBALS['name'] = $primaryData['name'];
-  $GLOBALS['avgAge'] = $primaryData["avgAge"];
-  $GLOBALS['avgDailyIncomeInUSD'] = $primaryData["avgDailyIncomeInUSD"];
-  $GLOBALS['avgDailyIncomePopulation'] = $primaryData['avgDailyIncomePopulation'];
-  $GLOBALS['periodType'] = $primaryData['periodType'];
-  $GLOBALS['timeToElapse'] = $primaryData["timeToElapse"];
-  $GLOBALS['reportedCases'] = $primaryData["reportedCases"];
-  $GLOBALS['population'] = $primaryData["population"];
-  $GLOBALS['totalHospitalBeds'] = $primaryData["totalHospitalBeds"];
+  $GLOBALS['name'] = $primaryData["data"]["region"]['name'];
+  $GLOBALS['avgAge'] = $primaryData["data"]["region"]["avgAge"];
+  $GLOBALS['avgDailyIncomeInUSD'] = $primaryData["data"]["region"]["avgDailyIncomeInUSD"];
+  $GLOBALS['avgDailyIncomePopulation'] = $primaryData["data"]["region"]['avgDailyIncomePopulation'];
+  $GLOBALS['periodType'] = $primaryData["data"]['periodType'];
+  $GLOBALS['timeToElapse'] = $primaryData["data"]["timeToElapse"];
+  $GLOBALS['reportedCases'] = $primaryData["data"]["reportedCases"];
+  $GLOBALS['population'] = $primaryData["data"]["population"];
+  $GLOBALS['totalHospitalBeds'] = $primaryData["data"]["totalHospitalBeds"];
 
   $output = array(
     "data" => $data,
