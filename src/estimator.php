@@ -162,7 +162,7 @@ function covid19ImpactEstimator($data)
   assessmentOne("impact");
   assessmentTwo();
   assessmentThree();  
-  $output = outputAssesssment();
+  $impact = outputAssesssment();
   
 
   assessmentOne("severe");
